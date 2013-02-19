@@ -5,9 +5,9 @@ import urllib2
 
 from BeautifulSoup import BeautifulSoup
 
+from credentials import *
+
 TIME_BT_REQUESTS = 2
-EMAIL = "email@example.com"
-PASSWORD = "yourpasswordhere"
 
 def main():
 	print "Logging in..."
