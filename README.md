@@ -3,8 +3,12 @@ stravalib
 
 Library for scraping Strava data
 
-To get started do this:
+Getting started:
+----------------
 
-  $ cp credentials.py.template credentials.py
+Copy the credentials template and fill in your own credentials
 
-and fill in your credentials
+    $ cp credentials.py.template credentials.py
+
+
+More if time and interest sees fit...
