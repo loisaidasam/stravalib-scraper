@@ -1,4 +1,4 @@
-stravalib
+stravalib-scraper
 =========
 
 Library for scraping Strava data
