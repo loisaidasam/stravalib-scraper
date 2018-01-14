@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from bs4 import BeautifulSoup
@@ -61,17 +62,20 @@ class StravaScraper(object):
 
 def main():
     import sys
-    import credentials
 
-    scraper = StravaScraper(credentials.EMAIL, credentials.PASSWORD)
+    if len(sys.argv) < 3:
+        print >> sys.stderr, "Usage: ./scraper.py \"<email>\" \"<password>\" [url=\"https://www.strava.com/dashboard\"]"
+        sys.exit(1)
+    email, password = sys.argv[1:3]
+    scraper = StravaScraper(email, password)
     scraper.login()
-    if len(sys.argv) <= 1:
+    if len(sys.argv) < 4:
         # No custom URL to hit, just print the dashboard HTML
         print scraper.dashboard_content
         return
     # You can pass a custom URL to hit, such as:
     # "https://www.strava.com/challenges/rapha-rising-circle-of-death"
-    url = sys.argv[1]
+    url = sys.argv[3]
     response = scraper.get_page(url)
     print response.content
 
