@@ -39,8 +39,10 @@ class StravaScraper(object):
     def login(self):
         response = self.get_page(StravaScraper.URL_LOGIN)
         soup = BeautifulSoup(response.content, 'html.parser')
-        utf8 = soup.find_all('input', {'name': 'utf8'})[0].get('value').encode('utf-8')
-        token = soup.find_all('input', {'name': 'authenticity_token'})[0].get('value')
+        utf8 = soup.find_all('input',
+                             {'name': 'utf8'})[0].get('value').encode('utf-8')
+        token = soup.find_all('input',
+                              {'name': 'authenticity_token'})[0].get('value')
         data = {
             'utf8': utf8,
             'authenticity_token': token,
